@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<h3><%= @review.title %><br></h3>
+<%= @review.content %><br>
+<%= image_tag @review.img_url %>
+
+<br>
+<%= link_to 'Edit', edit_review_path(@review) %> |
+<%= link_to 'All Reviews', reviews_path %>
