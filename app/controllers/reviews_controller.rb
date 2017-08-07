@@ -25,6 +25,7 @@ class ReviewsController < ApplicationController
   def show
     @review = Review.find(params[:id])
     @comments = @review.comments
+    @bowl = @review.bowl
   end
 
   # GET /reviews/1/edit

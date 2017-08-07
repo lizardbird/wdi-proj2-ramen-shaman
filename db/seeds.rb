@@ -15,3 +15,11 @@ review1 = Review.create(
     img_url: "https://ramenipsum.herokuapp.com/assets/img/afuri_yuzu_shio.jpg"
   }
 )
+
+review1.comments.create!(
+  {
+    name: "Liz",
+    email: "eghelms@gmail.com",
+    comment: "This is a comment created in the seed file."
+  }
+)
