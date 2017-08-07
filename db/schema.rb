@@ -10,22 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170807131834) do
+ActiveRecord::Schema.define(version: 20170806230446) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "bowls", force: :cascade do |t|
-    t.integer "price"
-    t.string "broth"
-    t.string "noodle"
-    t.string "protein"
-    t.boolean "is_veg"
-    t.bigint "review_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["review_id"], name: "index_bowls_on_review_id"
-  end
 
   create_table "comments", force: :cascade do |t|
     t.string "name"
@@ -38,6 +26,11 @@ ActiveRecord::Schema.define(version: 20170807131834) do
   end
 
   create_table "reviews", force: :cascade do |t|
+    t.integer "price"
+    t.string "broth"
+    t.string "noodle"
+    t.string "protein"
+    t.boolean "is_veg"
     t.string "title"
     t.text "content"
     t.string "img_url"

@@ -1,6 +1,26 @@
 <div class="form">
 <%= form_for @review do |f| %>
 <div class="formitem">
+  <%= f.label :"price (in USD)" %>
+  <%= f.text_field :price %>
+</div>
+<div class="formitem">
+  <%= f.label :broth %>
+  <%= f.text_field :broth %>
+</div>
+<div class="formitem">
+  <%= f.label :noodle %>
+  <%= f.text_field :noodle %>
+</div>
+<div class="formitem">
+  <%= f.label :protein %>
+  <%= f.text_field :protein %>
+</div>
+<div class="formitem">
+  <%= f.label :"Vegetarian? (True or False)" %>
+  <%= f.text_field :is_veg %>
+</div>
+<div class="formitem">
   <%= f.label :title %>
   <%= f.text_field :title %>
 </div>

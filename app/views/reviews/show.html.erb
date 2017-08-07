@@ -7,16 +7,12 @@
 By username <br>
 <%= image_tag @review.img_url %>
 <br><br>
-<% if @bowl %>
     <h4>Bowl Info:</h4>
-    Price: $<%= @bowl.price %><br>
-    Broth: <%= @bowl.broth %><br>
-    Noodle: <%= @bowl.noodle %><br>
-    Protein: <%= @bowl.protein %><br>
-    Vegetarian? <%= @bowl.is_veg %><br>
-  <% else %>
-    <%= link_to "Add a bowl  ", new_review_bowl_path(@review) %>
-  <% end %>
+    Price: $<%= @review.price %><br>
+    Broth: <%= @review.broth %><br>
+    Noodle: <%= @review.noodle %><br>
+    Protein: <%= @review.protein %><br>
+    Vegetarian? <%= @review.is_veg %><br>
   <br><br>
 <%= @review.content %><br>
 <h3>Comments <%= link_to "+  ", new_review_comment_path(@review) %></h3>
