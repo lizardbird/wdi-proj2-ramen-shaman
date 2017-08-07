@@ -1,0 +1,19 @@
+<br>
+<%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
+<%= link_to 'All restaurants', restaurants_path %>
+
+<h3><%= @restaurant.name %><br></h3>
+<%= @restaurant.created_at.strftime("%m-%d-%Y") %><br>
+By username <br>
+<%= image_tag @restaurant.img_url %>
+<br><br>
+    <h4>Restaurant Info:</h4>
+    <%= @restaurant.address %><br>
+    <%= @restaurant.city %>, <%= @restaurant.state %>,<%= @restaurant.zip %><br>
+<br><br>
+
+<%= link_to 'Add a Bowl', new_bowl_path %>
+
+<% @restaurant.bowls.each do |b| %>
+  <%= link_to b.title, bowl_path(b) %>
+<% end %>

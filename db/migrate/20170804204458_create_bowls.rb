@@ -9,6 +9,7 @@ class CreateBowls < ActiveRecord::Migration[5.1]
       t.string :title
       t.text :review
       t.string :img_url
+      t.references :restaurant
       t.timestamps
     end
   end

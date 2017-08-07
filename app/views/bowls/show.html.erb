@@ -15,6 +15,13 @@ By username <br>
     Vegetarian? <%= @bowl.is_veg %><br>
   <br><br>
 <%= @bowl.review %><br>
+
+<h4>Eaten at:</h4>
+<%= link_to @restaurant.name, restaurant_path(@restaurant) %><br>
+<%= @restaurant.address %><br>
+<%= @restaurant.city %>, <%= @restaurant.state %>,<%= @restaurant.zip %><br>
+<br><br>
+
 <h3>Comments <%= link_to "+  ", new_bowl_comment_path(@bowl) %></h3>
 
 <% if @comments %>

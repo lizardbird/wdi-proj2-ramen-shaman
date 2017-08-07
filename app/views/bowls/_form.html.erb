@@ -1,42 +1,55 @@
 <div class="form">
-<%= form_for @bowl do |f| %>
-<div class="formitem">
-  <%= f.label :"price (in USD)" %>
-  <%= f.text_field :price %>
-</div>
-<div class="formitem">
-  <%= f.label :broth %>
-  <%= f.text_field :broth %>
-</div>
-<div class="formitem">
-  <%= f.label :noodle %>
-  <%= f.text_field :noodle %>
-</div>
-<div class="formitem">
-  <%= f.label :protein %>
-  <%= f.text_field :protein %>
-</div>
-<div class="formitem">
-  <%= f.label :"Vegetarian? (True or False)" %>
-  <%= f.text_field :is_veg %>
-</div>
-<div class="formitem">
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-</div>
-<div class="formitem">
-  <%= f.label :image %>
-  <%= f.text_field :img_url %>
-</div>
-<div class="formitem">
-  <%= f.label :review %><br>
-  <%= f.text_area :review, class: "reviewinput"%>
-</div>
-<div class="formbutton">
-  <%= f.submit %>
-</div>
-<% end %>
-<%= form_for @bowl, method: :delete do |f| %>
-  <%= f.submit "Delete!", class: "delete" %>
-<% end %>
+  <%= form_for @bowl do |f| %>
+  Thanks for adding to our collection! First up, how would you describe this bowl? We've seen titles like "Best Bowl I've Ever Binged On" and "Savory, Salty, Seaweedy!" Don't be afraid to get creative.<br><br>
+  <div class="formitem">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <br>
+  Nice. Where'd you eat this delicious bowl of ramen?<br><br>
+  <div class="formitem">
+    <%= f.label :restaurant %>
+    <%= select(:bowl, :restaurant_id, Restaurant.all.collect{|rest| [rest.name, rest.id]}) %><br><br>
+    Not seeing your restaurant? Click <%= link_to 'here', new_restaurant_path %> to add it to our database first!<br><br>
+  </div>
+  Now for some optional details...<br><br>
+    <div class="formitem">
+      <%= f.label :"price (in USD)" %>
+      <%= f.text_field :price %>
+    </div>
+    <div class="formitem">
+      <%= f.label :broth %>
+      <%= f.text_field :broth %>
+    </div>
+    <div class="formitem">
+      <%= f.label :noodle %>
+      <%= f.text_field :noodle %>
+    </div>
+    <div class="formitem">
+      <%= f.label :protein %>
+      <%= f.text_field :protein %>
+    </div>
+    <div class="formitem">
+      <%= f.label :"Vegetarian? (True or False)" %>
+      <%= f.text_field :is_veg %>
+    </div>
+    <div class="formitem">
+      <%= f.label :image %>
+      <%= f.text_field :img_url %>
+    </div>
+    <br><br>
+    Any additional comments?<br><br>
+    <div class="formitem">
+      <%= f.label :review %><br>
+      <%= f.text_area :review, class: "reviewinput"%>
+    </div>
+
+    <div class="formbutton">
+      <%= f.submit %>
+    </div>
+  <% end %>
+
+  <%= form_for @bowl, method: :delete do |f| %>
+    <%= f.submit "Delete!", class: "delete" %>
+  <% end %>
 </div>

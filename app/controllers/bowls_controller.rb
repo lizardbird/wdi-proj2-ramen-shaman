@@ -24,6 +24,7 @@ class BowlsController < ApplicationController
   # GET /bowls/1
   def show
     @bowl = Bowl.find(params[:id])
+    @restaurant = @bowl.restaurant
     @comments = @bowl.comments
   end
 
@@ -51,6 +52,6 @@ class BowlsController < ApplicationController
   private
     # Prevent evil people from messing with my params
     def bowl_params
-      params.require(:bowl).permit(:price, :broth, :noodle, :protein, :is_veg, :title, :review, :img_url)
+      params.require(:bowl).permit(:price, :broth, :noodle, :protein, :is_veg, :title, :review, :img_url, :restaurant_id)
     end
 end
