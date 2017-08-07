@@ -6,10 +6,20 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+require 'yelp'
+
+Yelp.client.configure do |config|
+  config.consumer_key = "x4DI1po0kVoO3RdomE2Stw"
+  config.consumer_secret = "K2IXMz8fFo9CJSXbDuUMgNKFeqQakZlzXkCujDrh7cRRzQdV5bE8MqSvhHQ9twwn"
+  config.token = YOUR_TOKEN
+  config.token_secret = YOUR_TOKEN_SECRET
+end
+
+Yelp.client.search('Washington DC', { term: 'ramen' })
+
 Restaurant.destroy_all
 Bowl.destroy_all
 Comment.destroy_all
-
 
 Restaurant.create(
   [{
