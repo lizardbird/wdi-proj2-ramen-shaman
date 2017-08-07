@@ -12,7 +12,7 @@ class BowlsController < ApplicationController
 
   # POST /bowls
   def create
-    @bowl = Bowl.new(bowl_params)
+    @bowl = current_user.bowls.new(bowl_params)
     if @bowl.save
       flash[:notice] = "#{@bowl.title} created successfully."
       redirect_to bowl_path(@bowl)
@@ -31,21 +31,33 @@ class BowlsController < ApplicationController
   # GET /bowls/1/edit
   def edit
     @bowl = Bowl.find(params[:id])
+    if @bowl.user != current_user
+      flash[:alert] = "Only the author of a bowl can edit!"
+      redirect_to bowl_path(@bowl)
+    end
   end
 
   # PATCH/PUT /bowls/1
   def update
     @bowl = Bowl.find(params[:id])
-    @bowl.update(bowl_params)
-    flash[:notice] = "bowl updated successfully."
+    if @bowl.user == current_user
+      @bowl.update(bowl_params)
+      flash[:notice] = "Bowl updated successfully."
+    else
+      flash[:alert] = "Only the author of a bowl can edit!"
+    end
     redirect_to bowl_path(@bowl)
   end
 
   # DELETE /bowls/1
   def destroy
     @bowl = Bowl.find(params[:id])
-    @bowl.destroy
-    flash[:alert] = "bowl deleted!"
+    if @bowl.user == current_user
+      @bowl.destroy
+      flash[:alert] = "Bowl deleted!"
+    else
+      flash[:alert] = "Only the author of a bowl can delete it!"
+    end
     redirect_to bowls_path
   end
 

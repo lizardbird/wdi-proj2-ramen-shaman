@@ -4,7 +4,7 @@
 
 <h3><%= @bowl.title %><br></h3>
 <%= @bowl.created_at.strftime("%m-%d-%Y") %><br>
-By username <br>
+By <%= @bowl.user.name %> <br>
 <%= image_tag @bowl.img_url %>
 <br><br>
     <h4>Bowl Info:</h4>

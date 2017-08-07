@@ -6,12 +6,14 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+User.destroy_all
 Restaurant.destroy_all
 Bowl.destroy_all
 Comment.destroy_all
 
+liz = User.create!(email: 'eghelms@gmail.com', password: "password")
 
-Restaurant.create(
+rests = Restaurant.create(
   [{
     name: "Jinya Ramen Bar - Mosaic District",
     address: "2911 District Ave #140",
@@ -38,7 +40,7 @@ Restaurant.create(
   }
 ]
 )
-bowl1 = Restaurant.first.bowls.create!(
+bowl1 = liz.bowls.create!(
   {
     price: 10,
     broth: "miso",
@@ -47,7 +49,8 @@ bowl1 = Restaurant.first.bowls.create!(
     is_veg: false,
     title: "This is a bowl",
     review: "Butter Nissin instant cup ramen ramen burger Nissin instant cup ramen Tokushima soy sauce scallions abura soba yuzu bamboo slices pork bones bamboo slices rice Yokohama soy sauce toasted sesame seeds Tokyo rice. Fish broth miso abura soba pork bones soy sauce Hakata corn Hakodate scallions curry Asahikawa soy sauce pork cubes. Hakata bean sprouts pork bones miso chilli flavoured oil minced garlic Kagoshima. Hakata fish broth Asahikawa pork cubes Wakayama Kagoshima leek Kagoshima lard spinach Tokyo.",
-    img_url: "https://ramenipsum.herokuapp.com/assets/img/afuri_yuzu_shio.jpg"
+    img_url: "https://ramenipsum.herokuapp.com/assets/img/afuri_yuzu_shio.jpg",
+    restaurant: rests[0]
   }
 
 )
