@@ -1,0 +1,11 @@
+<h1>Browse Our Bowls</h1>
+
+    <% @bowls.each do |bowl| %>
+      <ul>
+        <li><%= link_to bowl.title, bowl %></li>
+      </ul>
+    <% end %>
+
+<br>
+
+<%= link_to 'New bowl', new_bowl_path %>

@@ -4,7 +4,7 @@ class CreateComments < ActiveRecord::Migration[5.1]
       t.string :name
       t.text :comment
       t.string :email
-      t.references :review
+      t.references :bowl
       t.timestamps
     end
   end

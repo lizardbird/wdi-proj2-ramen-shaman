@@ -15,27 +15,27 @@ ActiveRecord::Schema.define(version: 20170806230446) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "comments", force: :cascade do |t|
-    t.string "name"
-    t.text "comment"
-    t.string "email"
-    t.bigint "review_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["review_id"], name: "index_comments_on_review_id"
-  end
-
-  create_table "reviews", force: :cascade do |t|
+  create_table "bowls", force: :cascade do |t|
     t.integer "price"
     t.string "broth"
     t.string "noodle"
     t.string "protein"
     t.boolean "is_veg"
     t.string "title"
-    t.text "content"
+    t.text "review"
     t.string "img_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.string "name"
+    t.text "comment"
+    t.string "email"
+    t.bigint "bowl_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bowl_id"], name: "index_comments_on_bowl_id"
   end
 
 end
