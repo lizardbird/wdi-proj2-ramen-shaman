@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170808163345) do
+ActiveRecord::Schema.define(version: 20170808183002) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,13 @@ ActiveRecord::Schema.define(version: 20170808163345) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "favorites", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "bowl_id"
+    t.index ["bowl_id"], name: "index_favorites_on_bowl_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
   create_table "restaurants", force: :cascade do |t|
     t.string "name"
     t.string "address"
@@ -56,7 +63,6 @@ ActiveRecord::Schema.define(version: 20170808163345) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name", default: "", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -77,4 +83,6 @@ ActiveRecord::Schema.define(version: 20170808163345) do
 
   add_foreign_key "bowls", "users"
   add_foreign_key "comments", "users"
+  add_foreign_key "favorites", "bowls"
+  add_foreign_key "favorites", "users"
 end

@@ -11,7 +11,7 @@ Restaurant.destroy_all
 Bowl.destroy_all
 Comment.destroy_all
 
-liz = User.create!(name: "Liz", email: 'eghelms@gmail.com', password: "password")
+liz = User.create!(first_name: "Liz", last_name: "Jewell", email: 'eghelms@gmail.com', password: "password")
 
 rests = Restaurant.create([
   {

@@ -61,6 +61,17 @@ class BowlsController < ApplicationController
     redirect_to bowls_path
   end
 
+  def add_favorite
+    @bowl = Bowl.find(params[:id])
+    @bowl.favorites.create(user: current_user)
+    redirect_to :back
+  end
+
+  def remove_favorite
+    Favorite.find_by(user: current_user, bowl_id: params[:id]).destroy
+    redirect_to :back
+  end
+
   private
     # Prevent evil people from messing with my params
     def bowl_params

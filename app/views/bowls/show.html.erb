@@ -4,7 +4,13 @@
 
 <h3><%= @bowl.title %><br></h3>
 <%= @bowl.created_at.strftime("%m-%d-%Y") %><br>
-By <%= @bowl.user.name %> <br>
+By <%= @bowl.user.first_name %> <br>
+<% if @bowl.users.include? current_user %>
+  <%= link_to "&hearts;".html_safe, remove_favorite_bowl_path(@bowl), method: :delete, class: "fav" %>
+<% else %>
+  <%= link_to "&hearts;".html_safe, add_favorite_bowl_path(@bowl), method: :post, class: "no-fav" %>
+<% end %>
+
 <%= image_tag @bowl.img_url %>
 <br><br>
     <h4>Bowl Info:</h4>

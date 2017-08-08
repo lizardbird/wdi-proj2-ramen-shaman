@@ -7,4 +7,10 @@ Rails.application.routes.draw do
   resources :bowls do
     resources :comments
   end
+  resources :bowls, only: [:index, :show] do
+   member do
+     post 'add_favorite'
+     delete 'remove_favorite'
+   end
+ end
 end
