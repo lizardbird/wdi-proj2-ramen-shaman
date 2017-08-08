@@ -64,12 +64,13 @@ class BowlsController < ApplicationController
   def add_favorite
     @bowl = Bowl.find(params[:id])
     @bowl.favorites.create(user: current_user)
-    redirect_to :back
+    redirect_to bowl_path(@bowl)
   end
 
   def remove_favorite
+    @bowl = Bowl.find(params[:id])
     Favorite.find_by(user: current_user, bowl_id: params[:id]).destroy
-    redirect_to :back
+    redirect_to bowl_path(@bowl)
   end
 
   private
