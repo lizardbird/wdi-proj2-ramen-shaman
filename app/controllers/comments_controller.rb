@@ -8,8 +8,8 @@ class CommentsController < ApplicationController
 
   # POST /comments
   def create
-    @bowl = Bowl.find(params[:bowl_id])
-    @comment = @bowl.comments.new(comment_params)
+    @bowl = Bowls.find(params[:bowl_id])
+    @comment = @bowl.comments.new(comment_params.merge(user: current_user))
     if @comment.save
       flash[:notice] = "Comment saved successfully."
       redirect_to bowl_path(@bowl)
@@ -23,14 +23,21 @@ class CommentsController < ApplicationController
   def edit
       @bowl = Bowl.find(params[:bowl_id])
       @comment = Comment.find(params[:id])
+      if @comment.user != current_user
+        flash[:alert] = "Only the author of a comment can edit!"
+        redirect_to bowl_path(@bowl)
+      end
     end
 
   # PATCH/PUT /comments/1
   def update
     @bowl = Bowl.find(params[:bowl_id])
     @comment = Comment.find(params[:id])
-    @comment.update(comment_params)
-    flash[:notice] = "Comment upated successfully."
+    if @comment.user === current_user
+      @comment.update(comment_params)
+    else
+      flash[:alert] = "Only the author of a comment can edit!"
+    end
     redirect_to bowl_path(@bowl)
   end
 
@@ -38,8 +45,11 @@ class CommentsController < ApplicationController
   def destroy
     @bowl = Bowl.find(params[:bowl_id])
     @comment = Comment.find(params[:id])
-    @comment.destroy
-    flash[:alert] = "Comment deleted!"
+    if @comment.user === current_user
+      @comment.destroy
+    else
+      flash[:alert] = "Only the author can delete!"
+    end
     redirect_to bowl_path(@bowl)
   end
 

@@ -18,6 +18,6 @@
 <% end %>
 
 <%= form_for [@bowl, @comment], method: :delete do |f| %>
-  <%= f.submit "Delete!", class: "delete" %>
+  <%= f.submit "Delete!", class: "delete", confirm: "Are you sure?" %>
 <% end %>
 </div>
