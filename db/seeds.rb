@@ -21,8 +21,10 @@ Restaurant.destroy_all
 Bowl.destroy_all
 Comment.destroy_all
 
-Restaurant.create(
-  [{
+liz = User.create!(name: "Liz", email: 'eghelms@gmail.com', password: "password")
+
+rests = Restaurant.create([
+  {
     name: "Jinya Ramen Bar - Mosaic District",
     address: "2911 District Ave #140",
     city: "Fairfax",
@@ -46,9 +48,9 @@ Restaurant.create(
     zip: "20001",
     img_url: "http://farm9.staticflickr.com/8085/8492629180_f3e007bc2b_o.jpg"
   }
-]
-)
-bowl1 = Restaurant.first.bowls.create!(
+])
+
+bowls = liz.bowls.create!([
   {
     price: 10,
     broth: "miso",
@@ -57,15 +59,27 @@ bowl1 = Restaurant.first.bowls.create!(
     is_veg: false,
     title: "This is a bowl",
     review: "Butter Nissin instant cup ramen ramen burger Nissin instant cup ramen Tokushima soy sauce scallions abura soba yuzu bamboo slices pork bones bamboo slices rice Yokohama soy sauce toasted sesame seeds Tokyo rice. Fish broth miso abura soba pork bones soy sauce Hakata corn Hakodate scallions curry Asahikawa soy sauce pork cubes. Hakata bean sprouts pork bones miso chilli flavoured oil minced garlic Kagoshima. Hakata fish broth Asahikawa pork cubes Wakayama Kagoshima leek Kagoshima lard spinach Tokyo.",
-    img_url: "https://ramenipsum.herokuapp.com/assets/img/afuri_yuzu_shio.jpg"
+    img_url: "https://ramenipsum.herokuapp.com/assets/img/afuri_yuzu_shio.jpg",
+    restaurant: rests[0]
+  },
+  {
+    price: 15,
+    broth: "shio",
+    noodle: "wheat",
+    protein: "tofu",
+    is_veg: true,
+    title: "This is a bowl",
+    review: "Butter Nissin instant cup ramen ramen burger Nissin instant cup ramen Tokushima soy sauce scallions abura soba yuzu bamboo slices pork bones bamboo slices rice Yokohama soy sauce toasted sesame seeds Tokyo rice. Fish broth miso abura soba pork bones soy sauce Hakata corn Hakodate scallions curry Asahikawa soy sauce pork cubes. Hakata bean sprouts pork bones miso chilli flavoured oil minced garlic Kagoshima. Hakata fish broth Asahikawa pork cubes Wakayama Kagoshima leek Kagoshima lard spinach Tokyo.",
+    img_url: "https://media.blueapron.com/recipes/124/c_main_dish_images/20140808-1822-348-1459/VegetarianMisoRamen_BlueApron_high_feature.jpg",
+    restaurant: rests[2]
   }
+])
 
-)
-
-bowl1.comments.create!(
+liz.comments.create!(
   {
     name: "Liz",
     email: "eghelms@gmail.com",
-    comment: "This is a comment created in the seed file."
+    comment: "This is a comment created in the seed file.",
+    bowl: bowls[1]
   }
 )
