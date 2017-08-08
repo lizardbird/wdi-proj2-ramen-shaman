@@ -2,7 +2,8 @@ class RestaurantsController < ApplicationController
 
   # GET /restaurants
   def index
-    @restaurants = Restaurant.all
+    @restaurants = Restaurant.all.sort
+    @restaurants.sort! { |a,b| a.name.downcase <=> b.name.downcase }
   end
 
   # GET /restaurants/new

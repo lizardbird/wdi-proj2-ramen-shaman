@@ -6,7 +6,7 @@ require "optparse"
 # Place holders for Yelp Fusion's OAuth 2.0 credentials. Grab them
 # from https://www.yelp.com/developers/v3/manage_app
 CLIENT_ID = "x4DI1po0kVoO3RdomE2Stw"
-CLIENT_SECRET = "2IXMz8fFo9CJSXbDuUMgNKFeqQakZlzXkCujDrh7cRRzQdV5bE8MqSvhHQ9twwn"
+CLIENT_SECRET = "K2IXMz8fFo9CJSXbDuUMgNKFeqQakZlzXkCujDrh7cRRzQdV5bE8MqSvhHQ9twwn"
 
 
 # Constants, do not change these
@@ -17,10 +17,10 @@ TOKEN_PATH = "/oauth2/token"
 GRANT_TYPE = "client_credentials"
 
 
-DEFAULT_BUSINESS_ID = "yelp-san-francisco"
-DEFAULT_TERM = "dinner"
-DEFAULT_LOCATION = "San Francisco, CA"
-SEARCH_LIMIT = 5
+DEFAULT_BUSINESS_ID = "yelp-washington-dc"
+DEFAULT_TERM = "ramen"
+DEFAULT_LOCATION = "Washington, DC"
+SEARCH_LIMIT = 50
 
 
 # Make a request to the Fusion API token endpoint to get the access token.
@@ -154,7 +154,17 @@ when "search"
   response = search(term, location)
 
   puts "Found #{response["total"]} businesses. Listing #{SEARCH_LIMIT}:"
-  response["businesses"].each {|biz| puts biz["name"]}
+  response["businesses"].each {|biz|
+    puts "{"
+    puts "name: '#{biz["name"]}',"
+    puts "address: '#{biz["location"]["address1"]},'"
+    puts "city: '#{biz["location"]["city"]}',"
+    puts "state: '#{biz["location"]["state"]}',"
+    puts "zip: '#{biz["location"]["zip_code"]}',"
+    puts "img_url: '#{biz["image_url"]}',"
+    puts "price: '#{biz["price"]}'"
+    puts "},"
+  }
 when "lookup"
   business_id = options.fetch(:business_id, DEFAULT_BUSINESS_ID)
 

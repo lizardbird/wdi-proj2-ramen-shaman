@@ -9,7 +9,7 @@
   Nice. Where'd you eat this delicious bowl of ramen?<br><br>
   <div class="formitem">
     <%= f.label :restaurant %>
-    <%= select(:bowl, :restaurant_id, Restaurant.all.collect{|rest| [rest.name, rest.id]}) %><br><br>
+    <%= select(:bowl, :restaurant_id, Restaurant.all.collect{|rest| [rest.name, rest.id]}.sort) %><br><br>
     Not seeing your restaurant? Click <%= link_to 'here', new_restaurant_path %> to add it to our database first!<br><br>
   </div>
   Now for some optional details...<br><br>

@@ -7,6 +7,7 @@ class CreateRestaurants < ActiveRecord::Migration[5.1]
       t.string :state
       t.string :zip
       t.string :img_url
+      t.string :price
       t.timestamps
     end
   end
