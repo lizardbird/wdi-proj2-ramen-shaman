@@ -43,15 +43,9 @@
       <%= f.label :review %><br>
       <%= f.text_area :review, class: "reviewinput"%>
     </div>
-
     <div class="formbutton">
       <%= f.submit %>
     </div>
-  <% end %>
-
-  <%= form_for [@bowl, @topping_tag] do |f| %>
-  <%= text_field_topping_tag :topping_name %>
-  <%= f.submit "Add Toppings" %>
   <% end %>
 
   <%= form_for @bowl, method: :delete do |f| %>

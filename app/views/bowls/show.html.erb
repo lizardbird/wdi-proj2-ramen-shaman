@@ -10,7 +10,7 @@ By <%= @bowl.user.first_name %> <br>
 <% else %>
   <%= link_to "&hearts;".html_safe, add_favorite_bowl_path(@bowl), method: :post, class: "no-fav" %>
 <% end %>
-
+<br>
 <%= image_tag @bowl.img_url %>
 <br><br>
     <h4>Bowl Info:</h4>
@@ -19,7 +19,24 @@ By <%= @bowl.user.first_name %> <br>
     Noodle: <%= @bowl.noodle %><br>
     Protein: <%= @bowl.protein %><br>
     Vegetarian? <%= @bowl.is_veg %><br>
-  <br><br>
+  <br>
+
+  <h4>Tag Your Toppings: (optional)</h4>
+  <% if @bowl.topping_tags %>
+      <% @bowl.topping_tags.each do |topping_tag| %>
+         <%= link_to topping_tag.topping.name, topping_path(topping_tag.topping) %>
+      <% end %>
+  <% end %>
+  <%= form_for [@bowl, @topping_tag] do |f| %>
+    <%= f.text_field :topping %>
+    <%= f.submit "Add topping" %>
+  <% end %>
+
+
+
+
+<br><br>
+<h4>Review:</h4>
 <%= @bowl.review %><br>
 
 <h4>Eaten at:</h4>
@@ -28,12 +45,6 @@ By <%= @bowl.user.first_name %> <br>
 <%= @restaurant.city %>, <%= @restaurant.state %>,<%= @restaurant.zip %><br>
 <br>
 
-<% if @bowl.topping_tags %>
-  <h4>This bowl contains the following toppings:</h4>
-  <% @bowl.topping_tags.each do |topping_tag| %>
-     <%= link_to topping_tag.topping.name, topping_path(topping_tag.topping) %><br>
-     <% end %>
-<% end %>
 
 <h3>Comments <%= link_to "+  ", new_bowl_comment_path(@bowl) %></h3>
 

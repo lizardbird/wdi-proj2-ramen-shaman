@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :restaurants
   resources :bowls do
     resources :comments
-    resources :tags, only: [:new, :create]
+    resources :topping_tags, only: [:new, :create]
   end
   resources :bowls, only: [:index, :show] do
    member do
