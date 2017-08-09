@@ -26,6 +26,7 @@ class BowlsController < ApplicationController
     @bowl = Bowl.find(params[:id])
     @restaurant = @bowl.restaurant
     @comments = @bowl.comments
+    @topping_tag = ToppingTag.new
   end
 
   # GET /bowls/1/edit

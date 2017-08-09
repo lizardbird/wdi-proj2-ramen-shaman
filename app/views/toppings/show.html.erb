@@ -1,0 +1,7 @@
+<h2>Bowls by Topping: <%= @topping.name %></h2>
+
+ <% @bowls.each do |bowl| %>
+   <article>
+     <h2><%= link_to bowl.title, bowl_path(bowl) %></h2>
+   </article>
+ <% end %>

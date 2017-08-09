@@ -26,7 +26,14 @@ By <%= @bowl.user.first_name %> <br>
 <%= link_to @restaurant.name, restaurant_path(@restaurant) %><br>
 <%= @restaurant.address %><br>
 <%= @restaurant.city %>, <%= @restaurant.state %>,<%= @restaurant.zip %><br>
-<br><br>
+<br>
+
+<% if @bowl.topping_tags %>
+  <h4>This bowl contains the following toppings:</h4>
+  <% @bowl.topping_tags.each do |topping_tag| %>
+     <%= link_to topping_tag.topping.name, topping_path(topping_tag.topping) %><br>
+     <% end %>
+<% end %>
 
 <h3>Comments <%= link_to "+  ", new_bowl_comment_path(@bowl) %></h3>
 

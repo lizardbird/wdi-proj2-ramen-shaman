@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :restaurants
   resources :bowls do
     resources :comments
+    resources :tags, only: [:new, :create]
   end
   resources :bowls, only: [:index, :show] do
    member do
@@ -13,4 +14,5 @@ Rails.application.routes.draw do
      delete 'remove_favorite'
    end
  end
+ resources :toppings
 end
