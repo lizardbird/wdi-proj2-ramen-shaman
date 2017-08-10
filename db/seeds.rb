@@ -494,8 +494,8 @@ liz.comments.create!(
   }
 )
 
-egg = Topping.create(name: "Egg")
-sprouts = Topping.create(name: "Sprouts")
+egg = Topping.create(name: "egg")
+sprouts = Topping.create(name: "sprouts")
 
 ToppingTag.create([
  {
