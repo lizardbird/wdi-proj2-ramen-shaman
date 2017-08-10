@@ -1,6 +1,5 @@
 # RAMEN SHAMAN (wdi-proj2-ramen-shaman)
-This repo contains all files needed to run the Ramen Shaman app.
-An application for finding, reviewing, and commenting on bowls of ramen and the restaurants where they are served.
+This repo contains all files needed to run the Ramen Shaman app - an application for finding, reviewing, and commenting on bowls of ramen and the restaurants where they are served.
 
 
 ## Current Features
