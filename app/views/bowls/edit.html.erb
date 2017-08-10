@@ -2,5 +2,10 @@
 
 <div class="main-content-form">
   <%= render 'form', bowl: @bowl %>
+
+  <%= form_for @bowl, method: :delete do |f| %>
+    <%= f.submit "Delete!", class: "delete" %>
+  <% end %>
+
 </div>
 <%= link_to 'Back', bowl_path %>

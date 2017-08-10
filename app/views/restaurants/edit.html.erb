@@ -2,11 +2,10 @@
 
 <div class="main-content-form">
   <%= render 'form', restaurant: @restaurant %>
-</div>
+
 
 <%= form_for @restaurant, method: :delete do |f| %>
   <%= f.submit "Delete!", class: "delete" %>
 <% end %>
-<br><br>
-<%= link_to 'Back', restaurant_path %>
-<%= link_to 'All Restaurants', restaurants_path %>
+
+</div>

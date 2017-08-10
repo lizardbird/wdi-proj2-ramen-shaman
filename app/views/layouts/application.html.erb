@@ -19,6 +19,7 @@
         <% if current_user %>
           <div class="logged-in">
             <p>Logged in as: <%= current_user.first_name %> <%= current_user.last_name %></p>
+            <%= link_to 'My Profile', "/pages/myprofile" %> |
             <%= link_to 'Edit Profile', edit_user_registration_path %> |
             <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
 
@@ -37,11 +38,15 @@
       <% unless current_page?(root_path) %>
       <div class="navbar">
         <ul>
-          <li><%= link_to 'Ramen 101', bowls_path %></li>
-          <li><%= link_to 'View Bowls', bowls_path %></li>
+            <li><%= link_to 'View Bowls', bowls_path %></li>
+            <li><%= link_to 'Add Bowl', new_bowl_path %></li>
           <li><%= link_to 'View Restaurants', restaurants_path %></li>
-          <li><%= link_to 'Add Bowl', new_bowl_path %></li>
           <li><%= link_to 'Add Restaurant', new_restaurant_path %></li>
+          <% if current_user %>
+            <%= link_to "Log Out", destroy_user_session_path %>
+          <% else %>
+          <%= link_to "Log In", new_user_session_path %>
+          <% end %>
         </ul>
       </div>
       <% end %>

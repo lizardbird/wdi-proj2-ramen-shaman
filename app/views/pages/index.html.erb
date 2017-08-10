@@ -2,10 +2,8 @@
 <%= image_tag "home-ramen-image.jpg", class: "home-image" %>
 
 <div class="welcome-links">
-  <ul>
-  <li><%= link_to 'Browse All Bowls', bowls_path %></li>
-  <li><%= link_to 'Ramen 101', bowls_path %></li>
-  <li><%= link_to "Log In", new_user_session_path %></li>
-  <li><%= link_to "Sign Up", new_user_registration_path %></li>
-</ul>
+  <%= link_to 'Browse All Bowls', bowls_path, class: "welcome-link-1" %>
+  <%= link_to 'Ramen 101', bowls_path, class: "welcome-link-2" %>
+  <%= link_to "Log In", new_user_session_path, class: "welcome-link-3" %>
+  <%= link_to "Sign Up", new_user_registration_path, class: "welcome-link-4" %>
 </div>

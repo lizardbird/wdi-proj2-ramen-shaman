@@ -61,12 +61,19 @@
   <h3>Comments <%= link_to "+  ", new_bowl_comment_path(@bowl) %></h3>
   <% if @comments %>
     <% @comments.each do |c| %>
-    <div class="comment">
-      <%= c.name %><br>
-      <%= c.created_at.strftime("%m-%d-%Y") %><br>
-      <%= c.comment %><br>
-      <%= link_to "(edit)", edit_bowl_comment_path(c.bowl_id, c) %>
-    </div>
+      <div class="comment">
+          <div class="comment-image-box">
+            <%= image_tag c.user.img_url, class: "comment-image" %>
+          </div>
+          <div class="comment-content-box">
+            <strong><%= c.name %><br></strong>
+            <%= c.created_at.strftime("%m-%d-%Y") %><br>
+            <%= c.comment %><br>
+            <% if c.user == current_user %>
+              <%= link_to "(edit)", edit_bowl_comment_path(c.bowl_id, c) %>
+              <% end %>
+          </div>
+      </div>
     <% end %>
   <% end %>
 </div>
