@@ -1,31 +1,31 @@
 <div class="form">
   <%= form_for @restaurant do |f| %>
     <div class="formitem">
-      <%= f.label :name %>
+      <%= f.label :name %><br>
       <%= f.text_field :name %>
     </div>
     <div class="formitem">
-      <%= f.label :address %>
+      <%= f.label :address %><br>
       <%= f.text_field :address %>
     </div>
     <div class="formitem">
-      <%= f.label :city %>
+      <%= f.label :city %><br>
       <%= f.text_field :city %>
     </div>
     <div class="formitem">
-      <%= f.label :state %>
+      <%= f.label :state %><br>
       <%= f.text_field :state %>
     </div>
     <div class="formitem">
-      <%= f.label :zip %>
+      <%= f.label :zip %><br>
       <%= f.text_field :zip %>
     </div>
     <div class="formitem">
-      <%= f.label :image %>
+      <%= f.label :image %><br>
       <%= f.text_field :img_url %>
     </div>
     <div class="formitem">
-      <%= f.label :"pricepoint ($, $$, $$$, $$$$)" %>
+      <%= f.label :"pricepoint ($, $$, $$$, $$$$)" %><br>
       <%= f.text_field :price %>
     </div>
     <div class="formbutton">
@@ -33,7 +33,4 @@
     </div>
   <% end %>
 
-  <%= form_for @restaurant, method: :delete do |f| %>
-    <%= f.submit "Delete!", class: "delete" %>
-  <% end %>
 </div>

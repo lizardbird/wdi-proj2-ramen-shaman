@@ -466,7 +466,7 @@ bowls = liz.bowls.create!([
     noodle: "buckwheat",
     protein: "pork",
     is_veg: false,
-    title: "Miso Pork Bowl",
+    title: "Best Bowl I've Ever Binged On",
     review: "Butter Nissin instant cup ramen ramen burger Nissin instant cup ramen Tokushima soy sauce scallions abura soba yuzu bamboo slices pork bones bamboo slices rice Yokohama soy sauce toasted sesame seeds Tokyo rice. Fish broth miso abura soba pork bones soy sauce Hakata corn Hakodate scallions curry Asahikawa soy sauce pork cubes. Hakata bean sprouts pork bones miso chilli flavoured oil minced garlic Kagoshima. Hakata fish broth Asahikawa pork cubes Wakayama Kagoshima leek Kagoshima lard spinach Tokyo.",
     img_url: "https://ramenipsum.herokuapp.com/assets/img/afuri_yuzu_shio.jpg",
     restaurant: rests[0]
@@ -477,7 +477,7 @@ bowls = liz.bowls.create!([
     noodle: "wheat",
     protein: "tofu",
     is_veg: true,
-    title: "Shio Veg Bowl",
+    title: "Savory, Salty, Seaweedy!",
     review: "Butter Nissin instant cup ramen ramen burger Nissin instant cup ramen Tokushima soy sauce scallions abura soba yuzu bamboo slices pork bones bamboo slices rice Yokohama soy sauce toasted sesame seeds Tokyo rice. Fish broth miso abura soba pork bones soy sauce Hakata corn Hakodate scallions curry Asahikawa soy sauce pork cubes. Hakata bean sprouts pork bones miso chilli flavoured oil minced garlic Kagoshima. Hakata fish broth Asahikawa pork cubes Wakayama Kagoshima leek Kagoshima lard spinach Tokyo.",
     img_url: "https://media.blueapron.com/recipes/124/c_main_dish_images/20140808-1822-348-1459/VegetarianMisoRamen_BlueApron_high_feature.jpg",
     restaurant: rests[2]
