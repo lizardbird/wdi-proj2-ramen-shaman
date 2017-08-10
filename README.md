@@ -1,10 +1,11 @@
 # RAMEN SHAMAN (wdi-proj2-ramen-shaman)
 This repo contains all files needed to run the Ramen Shaman app.
-An application for finding, reviewing, and commenting on bowls of ramen and the restaurants where they are served
+An application for finding, reviewing, and commenting on bowls of ramen and the restaurants where they are served.
 
 ## Current Features
 - Users can create, access, and manage their own bowls of ramen
 - Users can create, access, and manage their own comments on various bowls
+- Users can add topping tags to their bowl, and view other bowls with that topping
 - Users can select, create, access, and manage restaurants where the bowl was eaten
 - Users can favorite items and view them on their profile page
 
