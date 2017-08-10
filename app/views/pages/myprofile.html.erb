@@ -1,0 +1,44 @@
+<div class="main-header">
+    <div class="main-info">
+      <h2><%= current_user.first_name %></h2>
+        Account Created: <%= current_user.created_at.strftime("%m-%d-%Y") %><br>
+        Lives In: <%= current_user.city %><br>
+    </div>
+    <div class="profile-image-box">
+      <%= image_tag current_user.img_url, class: "profile-image" %>
+    </div>
+</div>
+
+<div class="main-content-box">
+
+
+  <div class="main-content">
+      <h4>Bowls:</h4>
+        <% if current_user.bowls %>
+            <% current_user.bowls.each do |bowl| %>
+               <li><%= link_to bowl.title, bowl_path(bowl) %></li>
+            <% end %>
+        <% end %>
+
+    <h4>Favorites:</h4>
+    <ul>
+      <% if current_user.favorites %>
+          <% current_user.favorites.each do |fav| %>
+             <li><%= link_to fav.bowl.title, bowl_path(fav.bowl) %></li>
+          <% end %>
+      <% end %>
+    </ul>
+  <div class="comment-box">
+    <h3>Comments</h3>
+    <% if current_user.comments %>
+      <% current_user.comments.each do |c| %>
+      <div class="comment">
+        <%= c.name %><br>
+        <%= c.created_at.strftime("%m-%d-%Y") %><br>
+        <%= c.comment %><br>
+        <%= link_to "view", bowl_path(c.bowl_id) %>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

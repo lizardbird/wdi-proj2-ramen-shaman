@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
 
   # POST /comments
   def create
-    @bowl = Bowls.find(params[:bowl_id])
+    @bowl = Bowl.find(params[:bowl_id])
     @comment = @bowl.comments.new(comment_params.merge(user: current_user))
     if @comment.save
       flash[:notice] = "Comment saved successfully."

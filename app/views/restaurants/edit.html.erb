@@ -1,6 +1,11 @@
 <h1>Editing Restaurant</h1>
 
-<%= render 'form', restaurant: @restaurant %>
+<div class="main-content-form">
+  <%= render 'form', restaurant: @restaurant %>
 
-<%= link_to 'Back', restaurant_path %>
-<%= link_to 'All Restaurants', restaurants_path %>
+
+<%= form_for @restaurant, method: :delete do |f| %>
+  <%= f.submit "Delete!", class: "delete" %>
+<% end %>
+
+</div>

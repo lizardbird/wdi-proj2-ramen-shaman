@@ -1,9 +1,16 @@
 <h1>Restaurants</h1>
-    <ul>
-      <% @restaurants.each do |restaurant| %>
-        <li><%= link_to restaurant.name, restaurant %></li>
-      <% end %>
-    </ul>
-<br>
 
-<%= link_to 'New Restaurant', new_restaurant_path %>
+<div class="main-content-box">
+  <div class = "primary-list">
+      <% @restaurants.each do |restaurant| %>
+      <div class="list-item">
+        <div class="thumbnail-frame">
+          <%=image_tag restaurant.img_url, class: "thumbnail-image"%>
+        </div>
+         <%= link_to restaurant.name, restaurant %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<br>

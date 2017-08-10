@@ -1,61 +1,79 @@
-<br>
-<%= link_to 'Edit', edit_bowl_path(@bowl) %> |
-<%= link_to 'All bowls', bowls_path %>
+<div class="main-header">
+    <div class="main-info">
+      <h2><%= @bowl.title %></h2>
+        Posted: <%= @bowl.created_at.strftime("%m-%d-%Y") %><br>
+        By: <%= @bowl.user.first_name.capitalize %> in <%= @bowl.user.city %><br>
+    </div>
+    <div class="main-options">
+      <% if @bowl.user == current_user %>
+        <%= link_to 'Edit Post', edit_bowl_path(@bowl) %>
+      <% end %><br><br>
+      <% if @bowl.users.include? current_user %>
+        <%= link_to "&hearts;".html_safe, remove_favorite_bowl_path(@bowl), method: :delete, class: "fav" %>
+      <% else %>
+        <%= link_to "&hearts;".html_safe, add_favorite_bowl_path(@bowl), method: :post, class: "no-fav" %>
+      <% end %><br>
+    </div>
+</div>
 
-<h3><%= @bowl.title %><br></h3>
-<%= @bowl.created_at.strftime("%m-%d-%Y") %><br>
-By <%= @bowl.user.first_name %> <br>
-<% if @bowl.users.include? current_user %>
-  <%= link_to "&hearts;".html_safe, remove_favorite_bowl_path(@bowl), method: :delete, class: "fav" %>
-<% else %>
-  <%= link_to "&hearts;".html_safe, add_favorite_bowl_path(@bowl), method: :post, class: "no-fav" %>
-<% end %>
-<br>
-<%= image_tag @bowl.img_url %>
-<br><br>
-    <h4>Bowl Info:</h4>
-    Price: $<%= @bowl.price %><br>
-    Broth: <%= @bowl.broth %><br>
-    Noodle: <%= @bowl.noodle %><br>
-    Protein: <%= @bowl.protein %><br>
-    Vegetarian? <%= @bowl.is_veg %><br>
-  <br>
+<div class="main-content-box">
 
-  <h4>Tag Your Toppings: (optional)</h4>
-  <% if @bowl.topping_tags %>
-      <% @bowl.topping_tags.each do |topping_tag| %>
-         <%= link_to topping_tag.topping.name, topping_path(topping_tag.topping) %>
+  <div class="main-image-box">
+    <%= image_tag @bowl.img_url, class: "main-image" %>
+  </div>
+
+  <div class="main-content">
+      <h4>Bowl Info:</h4>
+      <ul>
+        <li>Price: $<%= @bowl.price %></li>
+        <li>Broth: <%= @bowl.broth %></li>
+        <li>Noodle: <%= @bowl.noodle %></li>
+        <li>Protein: <%= @bowl.protein %></li>
+        <li>Vegetarian? <%= @bowl.is_veg %></li>
+      </ul>
+
+    <h4>Toppings:</h4>
+    <ul>
+      <% if @bowl.topping_tags %>
+          <% @bowl.topping_tags.each do |topping_tag| %>
+             <li><%= link_to topping_tag.topping.name, topping_path(topping_tag.topping) %></li>
+          <% end %>
       <% end %>
+    </ul>
+    <div class="main-content-form">
+      <% if @bowl.user == current_user %>
+        <%= form_for [@bowl, @topping_tag] do |f| %>
+          <%= f.text_field :topping %>
+          <%= f.submit "Add topping" %>
+        <% end %>
+      <% end %>
+    </div>
+    <h4>Review:</h4>
+      <%= @bowl.review %><br>
+    <h4>Eaten at:</h4>
+      <strong><%= link_to @restaurant.name, restaurant_path(@restaurant) %><br></strong>
+      <%= @restaurant.address %><br>
+      <%= @restaurant.city %>, <%= @restaurant.state %>,<%= @restaurant.zip %><br>
+    <br>
+  </div>
+</div>
+<div class="comment-box">
+  <h3>Comments <%= link_to "+  ", new_bowl_comment_path(@bowl) %></h3>
+  <% if @comments %>
+    <% @comments.each do |c| %>
+      <div class="comment">
+          <div class="comment-image-box">
+            <%= image_tag c.user.img_url, class: "comment-image" %>
+          </div>
+          <div class="comment-content-box">
+            <strong><%= c.name %><br></strong>
+            <%= c.created_at.strftime("%m-%d-%Y") %><br>
+            <%= c.comment %><br>
+            <% if c.user == current_user %>
+              <%= link_to "(edit)", edit_bowl_comment_path(c.bowl_id, c) %>
+              <% end %>
+          </div>
+      </div>
+    <% end %>
   <% end %>
-  <%= form_for [@bowl, @topping_tag] do |f| %>
-    <%= f.text_field :topping %>
-    <%= f.submit "Add topping" %>
-  <% end %>
-
-
-
-
-<br><br>
-<h4>Review:</h4>
-<%= @bowl.review %><br>
-
-<h4>Eaten at:</h4>
-<%= link_to @restaurant.name, restaurant_path(@restaurant) %><br>
-<%= @restaurant.address %><br>
-<%= @restaurant.city %>, <%= @restaurant.state %>,<%= @restaurant.zip %><br>
-<br>
-
-
-<h3>Comments <%= link_to "+  ", new_bowl_comment_path(@bowl) %></h3>
-
-<% if @comments %>
-  <% @comments.each do |c| %>
-  <%= c.name %><br>
-  <%= c.created_at.strftime("%m-%d-%Y") %><br>
-  <%= c.comment %><br>
-  <%= link_to "(edit)", edit_bowl_comment_path(c.bowl_id, c) %>
-  <br><br>
-  <% end %>
-<% end %>
-
-<br>
+</div>

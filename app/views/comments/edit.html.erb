@@ -1,5 +1,12 @@
 <h1>Editing Comment</h1>
 
+<div class="main-content-form">
 <%= render 'form', comment: @comment %>
+
+
+  <%= form_for [@bowl, @comment], method: :delete do |f| %>
+    <%= f.submit "Delete!", class: "delete", confirm: "Are you sure?" %>
+  <% end %>
+  </div>
 
 <%= link_to 'Back', bowl_path(@bowl) %>

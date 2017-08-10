@@ -1,11 +1,16 @@
 <h1>Browse Our Bowls</h1>
 
+<div class="main-content-box">
+  <div class = "primary-list">
     <% @bowls.each do |bowl| %>
-      <ul>
-        <li><%= link_to bowl.title, bowl %></li>
-      </ul>
+    <div class="list-item">
+      <div class="thumbnail-frame">
+          <%=image_tag bowl.img_url, class: "thumbnail-image"%>
+        </div>
+        <div class="thumbnail-link">
+          <%= link_to bowl.title, bowl %>
+        </div>
+      </div>
     <% end %>
-
-<br>
-
-<%= link_to 'New bowl', new_bowl_path %>
+  </div>
+</div>

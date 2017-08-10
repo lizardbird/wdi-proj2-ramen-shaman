@@ -1,8 +1,9 @@
 <div class="form">
   <%= form_for @bowl do |f| %>
-  Thanks for adding to our collection! First up, how would you describe this bowl? We've seen titles like "Best Bowl I've Ever Binged On" and "Savory, Salty, Seaweedy!" Don't be afraid to get creative.<br><br>
+  <strong>Thanks for adding to our collection! First up, how would you describe this bowl?</strong> <br><br>
+  We've seen titles like "Best Bowl I've Ever Binged On" and "Savory, Salty, Seaweedy!" Don't be afraid to get creative.<br><br>
   <div class="formitem">
-    <%= f.label :title %>
+    <%= f.label :title %><br>
     <%= f.text_field :title %>
   </div>
   <br>
@@ -14,27 +15,27 @@
   </div>
   Now for some optional details...<br><br>
     <div class="formitem">
-      <%= f.label :"price (in USD)" %>
+      <%= f.label :"price (in USD)" %><br>
       <%= f.text_field :price %>
     </div>
     <div class="formitem">
-      <%= f.label :broth %>
+      <%= f.label :broth %><br>
       <%= f.text_field :broth %>
     </div>
     <div class="formitem">
-      <%= f.label :noodle %>
+      <%= f.label :noodle %><br>
       <%= f.text_field :noodle %>
     </div>
     <div class="formitem">
-      <%= f.label :protein %>
+      <%= f.label :protein %><br>
       <%= f.text_field :protein %>
     </div>
     <div class="formitem">
-      <%= f.label :"Vegetarian? (True or False)" %>
+      <%= f.label :"Vegetarian? (True or False)" %><br>
       <%= f.text_field :is_veg %>
     </div>
     <div class="formitem">
-      <%= f.label :image %>
+      <%= f.label :image_URL %> <br>
       <%= f.text_field :img_url %>
     </div>
     <br><br>
@@ -47,8 +48,3 @@
       <%= f.submit %>
     </div>
   <% end %>
-
-  <%= form_for @bowl, method: :delete do |f| %>
-    <%= f.submit "Delete!", class: "delete" %>
-  <% end %>
-</div>
