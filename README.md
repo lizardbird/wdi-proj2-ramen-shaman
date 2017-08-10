@@ -2,7 +2,7 @@
 This repo contains all files needed to run the Ramen Shaman app.
 An application for finding, reviewing, and commenting on bowls of ramen and the restaurants where they are served.
 
-![preview](Screenshot.png | width=100)
+![preview](screenshot_0.png)
 ![preview](Screenshot1.png)
 ![preview](Screenshot2.png)
 ![preview](Screenshot3.png)
