@@ -481,8 +481,54 @@ bowls = liz.bowls.create!([
     review: "Butter Nissin instant cup ramen ramen burger Nissin instant cup ramen Tokushima soy sauce scallions abura soba yuzu bamboo slices pork bones bamboo slices rice Yokohama soy sauce toasted sesame seeds Tokyo rice. Fish broth miso abura soba pork bones soy sauce Hakata corn Hakodate scallions curry Asahikawa soy sauce pork cubes. Hakata bean sprouts pork bones miso chilli flavoured oil minced garlic Kagoshima. Hakata fish broth Asahikawa pork cubes Wakayama Kagoshima leek Kagoshima lard spinach Tokyo.",
     img_url: "https://media.blueapron.com/recipes/124/c_main_dish_images/20140808-1822-348-1459/VegetarianMisoRamen_BlueApron_high_feature.jpg",
     restaurant: rests[2]
+  },
+  {
+    price: 15,
+    broth: "shio",
+    noodle: "wheat",
+    protein: "tofu",
+    is_veg: true,
+    title: "Extra Egg Please",
+    review: "Butter Nissin instant cup ramen ramen burger Nissin instant cup ramen Tokushima soy sauce scallions abura soba yuzu bamboo slices pork bones bamboo slices rice Yokohama soy sauce toasted sesame seeds Tokyo rice. Fish broth miso abura soba pork bones soy sauce Hakata corn Hakodate scallions curry Asahikawa soy sauce pork cubes. Hakata bean sprouts pork bones miso chilli flavoured oil minced garlic Kagoshima. Hakata fish broth Asahikawa pork cubes Wakayama Kagoshima leek Kagoshima lard spinach Tokyo.",
+    img_url: "http://lh3.ggpht.com/_OaYG005JPDs/S5bLgr0-lmI/AAAAAAAAA9Y/Xj0eigc2ki8/s640/Quick%20Ramen%20Bowl%20yolk.jpg",
+    restaurant: rests[3]
+  },
+  {
+    price: 15,
+    broth: "shio",
+    noodle: "wheat",
+    protein: "tofu",
+    is_veg: true,
+    title: "Mushroom Veggie Bowl",
+    review: "Butter Nissin instant cup ramen ramen burger Nissin instant cup ramen Tokushima soy sauce scallions abura soba yuzu bamboo slices pork bones bamboo slices rice Yokohama soy sauce toasted sesame seeds Tokyo rice. Fish broth miso abura soba pork bones soy sauce Hakata corn Hakodate scallions curry Asahikawa soy sauce pork cubes. Hakata bean sprouts pork bones miso chilli flavoured oil minced garlic Kagoshima. Hakata fish broth Asahikawa pork cubes Wakayama Kagoshima leek Kagoshima lard spinach Tokyo.",
+    img_url: "https://scontent.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/e35/p750x750/13735869_1663749613880450_972562609_n.jpg?ig_cache_key=MTMwMzI4MzI4NjMwNjc3NzU3OQ%3D%3D.2",
+    restaurant: rests[4]
+  },
+  {
+    price: 15,
+    broth: "shio",
+    noodle: "wheat",
+    protein: "tofu",
+    is_veg: true,
+    title: "Steak and Veggie Bowl",
+    review: "Butter Nissin instant cup ramen ramen burger Nissin instant cup ramen Tokushima soy sauce scallions abura soba yuzu bamboo slices pork bones bamboo slices rice Yokohama soy sauce toasted sesame seeds Tokyo rice. Fish broth miso abura soba pork bones soy sauce Hakata corn Hakodate scallions curry Asahikawa soy sauce pork cubes. Hakata bean sprouts pork bones miso chilli flavoured oil minced garlic Kagoshima. Hakata fish broth Asahikawa pork cubes Wakayama Kagoshima leek Kagoshima lard spinach Tokyo.",
+    img_url: "https://frugalhausfrau.files.wordpress.com/2016/04/dscn2264x.jpg",
+    restaurant: rests[5]
+  },
+  {
+    price: 15,
+    broth: "shio",
+    noodle: "wheat",
+    protein: "tofu",
+    is_veg: true,
+    title: "Pork and Scallion",
+    review: "Butter Nissin instant cup ramen ramen burger Nissin instant cup ramen Tokushima soy sauce scallions abura soba yuzu bamboo slices pork bones bamboo slices rice Yokohama soy sauce toasted sesame seeds Tokyo rice. Fish broth miso abura soba pork bones soy sauce Hakata corn Hakodate scallions curry Asahikawa soy sauce pork cubes. Hakata bean sprouts pork bones miso chilli flavoured oil minced garlic Kagoshima. Hakata fish broth Asahikawa pork cubes Wakayama Kagoshima leek Kagoshima lard spinach Tokyo.",
+    img_url: "https://scontent-iad3-1.cdninstagram.com/t51.2885-15/e35/12751127_511734799019156_1460279120_n.jpg",
+    restaurant: rests[6]
   }
 ])
+
+
 
 
 liz.comments.create!(
