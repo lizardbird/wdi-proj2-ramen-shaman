@@ -46,6 +46,7 @@ class CommentsController < ApplicationController
     @bowl = Bowl.find(params[:bowl_id])
     @comment = Comment.find(params[:id])
     if @comment.user === current_user
+      flash[:notice] = "Comment deleted successfully."
       @comment.destroy
     else
       flash[:alert] = "Only the author can delete!"

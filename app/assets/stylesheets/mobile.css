@@ -361,3 +361,15 @@ a.no-fav {
    width: 50px;
    float: left;
  }
+
+ .notice {
+	 color: green;
+	 font-size: 18px;
+	 line-height: 20px;
+ }
+
+ .alert {
+ 	color: red;
+ 	font-size: 18px;
+	line-height: 20px;
+ }

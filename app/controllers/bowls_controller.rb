@@ -17,6 +17,7 @@ class BowlsController < ApplicationController
       flash[:notice] = "#{@bowl.title} created successfully."
       redirect_to bowl_path(@bowl)
     else
+      flash[:alert] = "Something went wrong trying to save your bowl!"
       render :new
     end
   end
