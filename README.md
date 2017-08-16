@@ -35,3 +35,4 @@ To set up the app locally on your own system:
 ## Contribute
 - Source code: https://github.com/lizardbird/wdi-proj2-ramen-shaman
 - Issue Tracker: https://github.com/lizardbird/wdi-proj2-ramen-shaman/issues
+- Trello Board: https://trello.com/b/z2OucZFE/ga-wdi-project-2-ramen-shaman
