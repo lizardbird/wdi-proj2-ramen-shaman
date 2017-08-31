@@ -2,8 +2,13 @@ Rails.application.routes.draw do
 
 
   devise_for :users, :controllers => {registrations: 'registrations'}
+  # Nice job customizing user sign-up
   root "pages#index"
   get "/pages/:page" => "pages#show"
+  # To use a different named parameter than :id, you can also use the 'param' option:
+  # resources :pages, param: :page, only: [:show]
+
+
   resources :restaurants
   resources :bowls do
     resources :comments

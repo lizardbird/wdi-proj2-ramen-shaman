@@ -10,6 +10,8 @@ class CreateBowls < ActiveRecord::Migration[5.1]
       t.text :review
       t.string :img_url
       t.references :restaurant
+      # consider adding the foreign_key: true constraint to the references above to
+      # enforce referential integrity
       t.timestamps
     end
   end

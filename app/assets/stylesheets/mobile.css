@@ -2,6 +2,9 @@
 
 /* For mobile phones: */
 /*General selectors*/
+
+/*Good thinking setting up mobile-specific styles in their own file*/
+
 body {
 	background-color: #fff;
 	color: #333;
