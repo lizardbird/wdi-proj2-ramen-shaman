@@ -1,6 +1,10 @@
 class PagesController < ApplicationController
   def index
   end
+
+  # Technically speaking, if the view can be inferred from the action name (like index
+  # above) then you don't have to define an empty controller method for it to work
+  
   def myprofile
   end
   def show

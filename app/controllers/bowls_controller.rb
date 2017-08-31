@@ -1,4 +1,7 @@
 class BowlsController < ApplicationController
+  one option in rails controllers to dry up your code is to abstract finding the
+  instance of a bowl into a method. Example:
+  before_action :find_bowl
 
   # GET /bowls
   def index
@@ -76,6 +79,13 @@ class BowlsController < ApplicationController
   end
 
   private
+
+    def find_bowl
+      if params[:id]
+        @bowl = Bowl.find(params[:id])
+      end
+    end
+
     # Prevent evil people from messing with my params
     def bowl_params
       params.require(:bowl).permit(:price, :broth, :noodle, :protein, :is_veg, :title, :review, :img_url, :restaurant_id)

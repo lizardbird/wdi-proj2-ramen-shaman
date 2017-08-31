@@ -8,6 +8,7 @@ class CreateRestaurants < ActiveRecord::Migration[5.1]
       t.string :zip
       t.string :img_url
       t.string :price
+      # consider using :decimal for prices
       t.timestamps
     end
   end

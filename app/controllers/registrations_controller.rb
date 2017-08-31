@@ -1,5 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
-
+  # Good job customizing Devise sign-up through inheritance
   private
 
   def sign_up_params
